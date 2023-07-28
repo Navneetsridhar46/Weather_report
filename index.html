@@ -27,6 +27,8 @@
                     <i class="mt-4 mb-4 fa-solid fa-cloud-sun-rain fa-7x" style="color: white;"></i>
             <div style="font-size: 100px;" id="cel" class="text-center text-white">
             </div>
+            <!-- <h3 class="text-center mt-3 text-white" id="pressure"></h3> -->
+            <div class="text-center text-white" id="feels"></div>
            <h3 class="text-center mt-3 text-white" id="temp"></h3>
         </div>
     </form>
@@ -40,6 +42,7 @@
         function displayData(dataArray) {
             name = dataArray.name
         weather = dataArray.weather[0].description
+        speed1 = dataArray.wind.speed
         temperature1 = dataArray.main.temp
         temperature = Math.floor(temperature1-273.15)
         result.innerHTML=`<div>
@@ -49,10 +52,17 @@
         `<div>
             <h2 style= "font-family: 'Handjet', cursive;font-size:50px">${temperature}°C</h2>
             </div>`
+        // wind.innerHTML= `<div>
+        //     <h2 style="font-family: 'Source Code Pro', monospace;">${pressure}km/h</h2>
+        //     </div>`
 
+        feels.innerHTML = `<div>
+            <h2 style="font-family: 'Source Code Pro', monospace;"><i class="fa-solid fa-wind"></i> ${speed1}km/h<br>(wind speed)</h2>
+            </div>`
+   
         temp.innerHTML=`<div>
             <h2 style="font-family: 'Source Code Pro', monospace;">${weather}</h2>
-            </div>`
+            </div>`    
         }
     }
 
